@@ -199,7 +199,6 @@ $white: #ffffff;
       }
     }
     //SINGLE
-
     .single {
       display: flex;
       gap: 50px;
@@ -248,7 +247,7 @@ $white: #ffffff;
 
         h1 {
           font-size: 42px;
-          color: #333;
+          color: $black;
         }
 
         p {
@@ -297,6 +296,97 @@ $white: #ffffff;
               background-color: $lightPink;
               color: $black;
             }
+          }
+        }
+      }
+    }
+
+    //WRITE
+    .add {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+
+      .content {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        input {
+          padding: 10px;
+          border: 1px solid lightgray;
+          border-radius: 10px;
+        }
+
+        .editorContainer {
+          height: 300px;
+          overflow: scroll;
+          border: 1px solid lightgray;
+          border-radius: 10px;
+
+          .editor {
+            height: 100%;
+            border: none;
+          }
+        }
+      }
+
+      .menu {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .item {
+          border: 1px solid lightgray;
+          border-radius: 10px;
+          padding: 10px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-size: 12px;
+          color: #555;
+
+          h1 {
+            font-size: 20px;
+          }
+
+          .file {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+
+          .buttons {
+            display: flex;
+            justify-content: space-between;
+
+            :first-child {
+              cursor: pointer;
+              color: $green;
+              background-color: $white;
+              border: 1px solid $green;
+              border-radius: 10px;
+              padding: 3px 5px;
+              margin: 10px;
+            }
+            :last-child {
+              cursor: pointer;
+              color: $white;
+              background-color: $red;
+              border: 1px solid $red;
+              border-radius: 10px;
+              padding: 3px 5px;
+              margin: 10px;
+            }
+          }
+
+          .cat {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            color: $lightPink;
           }
         }
       }
