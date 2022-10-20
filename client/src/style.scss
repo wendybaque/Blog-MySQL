@@ -1,5 +1,59 @@
+$lightPink:#ffbb98;
+$salmon:#fbe0c3;
+$green:#008080;
+$red:#ff6347;
+$black:#344648;
+$white:#ffffff;
 .app {
     .container {
         // LOGIN & REGISTER
+        .auth {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: $salmon;
+            h1 {
+                font-size: 20px;
+                color: $black;
+                margin-bottom: 20px;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                padding: 50px;
+                background-color: $white;
+                width: 200px;
+                gap:20px;
+                border-radius: 10px;
+
+                input {
+                    padding: 10px;
+                    border: none;
+                    border-bottom: 1px solid $lightPink;
+                }
+
+                button {
+                    padding: 10px;
+                    border:none;
+                    background-color: $lightPink;
+                    color: $black;
+                    cursor: pointer;
+                    border-radius: 10px;
+                }
+
+                p {
+                   font-size: 12px;
+                   color:$red;
+                   text-align: center;
+                }
+
+                span {
+                    font-size: 12px;
+                    text-align: center;
+                }
+            }
+        }
     }
 }
