@@ -7,10 +7,12 @@ const Navbar = () => {
     <div className="navbar">
       <div className="container">
         <div className="logo">
-          <img
-            src={logo}
-            alt="logo de Wendy Baqué, auteure, lectrice et chroniqueuse"
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="logo de Wendy Baqué, auteure, lectrice et chroniqueuse"
+            />
+          </Link>
         </div>
         <div className="links">
           <Link className="link" to="/?cat=massecritique">
