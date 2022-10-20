@@ -1,113 +1,127 @@
-$lightPink:#ffbb98;
-$salmon:#fbe0c3;
-$green:#008080;
-$red:#ff6347;
-$black:#344648;
-$white:#ffffff;
+$lightPink: #ffbb98;
+$salmon: #fbe0c3;
+$green: #008080;
+$red: #ff6347;
+$black: #344648;
+$white: #ffffff;
+
 .app {
-    display: flex;
-    justify-content: center;
-    .container {
-        width: 1024px;
-        .link {
-            text-decoration: none;
-            color:inherit;
+  display: flex;
+  justify-content: center;
+  .container {
+    width: 1024px;
+    .link {
+      text-decoration: none;
+      color: inherit;
+    }
+    // LOGIN & REGISTER
+    .auth {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: $salmon;
+      h1 {
+        font-size: 20px;
+        color: $black;
+        margin-bottom: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        background-color: $white;
+        width: 200px;
+        gap: 20px;
+        border-radius: 10px;
+
+        input {
+          padding: 10px;
+          border: none;
+          border-bottom: 1px solid $lightPink;
         }
-        // LOGIN & REGISTER
-        .auth {
+
+        button {
+          padding: 10px;
+          border: none;
+          background-color: $lightPink;
+          color: $black;
+          cursor: pointer;
+          border-radius: 10px;
+        }
+
+        p {
+          font-size: 12px;
+          color: $red;
+          text-align: center;
+        }
+
+        span {
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+    }
+
+    // NAVBAR
+    .navbar {
+      .container {
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+          img {
+            width: 120px;
+          }
+        }
+        .links {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          h6 {
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          span {
+            cursor: pointer;
+          }
+
+          .write {
+            background-color: $lightPink;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background-color: $salmon;
-            h1 {
-                font-size: 20px;
-                color: $black;
-                margin-bottom: 20px;
+            font-weight: 300;
+            border: solid 1px $white;
+
+            &:hover {
+              color: $red;
+              background-color: $white;
+              border: solid 1px $red;
             }
-            form {
-                display: flex;
-                flex-direction: column;
-                padding: 50px;
-                background-color: $white;
-                width: 200px;
-                gap:20px;
-                border-radius: 10px;
-
-                input {
-                    padding: 10px;
-                    border: none;
-                    border-bottom: 1px solid $lightPink;
-                }
-
-                button {
-                    padding: 10px;
-                    border:none;
-                    background-color: $lightPink;
-                    color: $black;
-                    cursor: pointer;
-                    border-radius: 10px;
-                }
-
-                p {
-                   font-size: 12px;
-                   color:$red;
-                   text-align: center;
-                }
-
-                span {
-                    font-size: 12px;
-                    text-align: center;
-                }
-            }
+          }
         }
-
-        // NAVBAR
-        .navbar {
-            .container {
-                padding: 10px 0px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                .logo {
-                    img {
-                        width: 120px;
-                    }
-                }
-                .links {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-
-                    h6 {
-                       font-size: 16px;
-                       font-weight: 300; 
-                    }
-
-                    span {
-                        cursor:pointer;
-                    }
-
-                    .write {
-                        background-color: $lightPink;
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-weight: 300;
-                        border:solid 1px $white;
-
-                        &:hover {
-                            color:$red;
-                            background-color: $white;
-                            border:solid 1px $red;
-                        }
-                    }
-                }
-            }
+      }
+    }
+    // FOOTER
+    footer {
+        margin-top: 100px;
+        padding: 20px;
+        background-color: $salmon;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        img {
+            height: 70px;
         }
     }
+  }
 }
