@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function Home() {
   const posts = [
@@ -30,6 +31,11 @@ function Home() {
   ];
   return (
     <div className="home">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="posts">
         {posts.map((post) => (
           <div className="post" key={post.id}>

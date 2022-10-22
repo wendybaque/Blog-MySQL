@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -28,6 +29,11 @@ const Login = () => {
 
   return (
     <div className="auth">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <h1>Login</h1>
       <form>
         <input
