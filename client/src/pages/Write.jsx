@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { Helmet } from "react-helmet";
 
 function Write() {
   const [value, setValue] = useState("");
 
   return (
     <div className="add">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Write</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="content">
         <input type="text" placeholder="Title" />
         <div className="editorContainer">

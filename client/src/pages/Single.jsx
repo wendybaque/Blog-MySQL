@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import edit from "../assets/edit.png";
 import delet from "../assets/delete.png";
 import Menu from "../components/Menu";
+import { Helmet } from "react-helmet";
 
 function Single() {
   return (
     <div className="single">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Single Post</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="content">
         <img src="" alt="" />
         <div className="user">
