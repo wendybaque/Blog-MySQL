@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import edit from "../assets/edit.svg";
-import delet from "../assets/delete.svg";
+import edit from "../assets/edit.png";
+import delet from "../assets/delete.png";
 import Menu from "../components/Menu";
 
 function Single() {
