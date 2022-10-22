@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
+import Page404 from "./pages/Page404";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./style.scss";
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path:"/register",
     element:<Register />,
+  },
+  {
+    path:"*",
+    element:<Page404 />,
   },
 ]);
 
