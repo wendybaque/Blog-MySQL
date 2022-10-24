@@ -1,51 +1,74 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import edit from "../assets/edit.png";
-import delet from "../assets/delete.png";
+import React, { useEffect, useState } from "react";
+import Edit from "../assets/edit.png";
+import Delete from "../assets/delete.png";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import moment from "moment";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import Menu from "../components/Menu";
-import { Helmet } from "react-helmet";
 
-function Single() {
+const Single = () => {
+  const [post, setPost] = useState({});
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const postId = location.pathname.split("/")[2];
+
+  const { currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/posts/${postId}`);
+        setPost(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [postId]);
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/posts/${postId}`);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getText = (html) =>{
+    const doc = new DOMParser().parseFromString(html, "text/html")
+    return doc.body.textContent
+  }
+
   return (
     <div className="single">
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Single Post</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
       <div className="content">
-        <img src="" alt="" />
+        <img src={`../upload/${post?.img}`} alt="" />
         <div className="user">
-          <img src="" alt="" />
+          {post.userImg && <img src={post.userImg} alt="" />}
           <div className="info">
-            <span>Wendy</span>
-            <p>date</p>
+            <span>{post.username}</span>
+            <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          <div className="edit">
-            <Link to={`/write?edit=2`}>
-              <img src={edit} alt="" />
-            </Link>
-            <img src={delet} alt="" />
-          </div>
+          {currentUser.username === post.username && (
+            <div className="edit">
+              <Link to={`/write?edit=2`} state={post}>
+                <img src={Edit} alt="" />
+              </Link>
+              <img onClick={handleDelete} src={Delete} alt="" />
+            </div>
+          )}
         </div>
-        <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h1>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet,
-          doloremque aspernatur iure vel asperiores fuga esse itaque magnam
-          deleniti facilis laudantium? Tenetur ipsa porro obcaecati odio
-          eligendi itaque praesentium accusantium? Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit. Ducimus nostrum repudiandae modi
-          consequatur laudantium quisquam dolorum. Enim esse ut molestiae
-          voluptas porro voluptate nihil amet, labore reprehenderit atque
-          architecto laboriosam! Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Corporis excepturi sint nisi atque labore
-          laboriosam, cumque, maxime in minima ipsa magnam error corrupti
-          quidem. Maxime odit minima deserunt ducimus et!
-        </p>
+        <h1>{post.title}</h1>
+        <p>{getText(post.desc)}</p>{" "}
       </div>
-      <Menu />
+      <Menu cat={post.cat} />
     </div>
   );
-}
+};
 
 export default Single;
