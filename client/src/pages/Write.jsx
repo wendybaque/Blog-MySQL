@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 function Write() {
   const [value, setValue] = useState("");
@@ -9,11 +10,22 @@ function Write() {
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState("");
 
-  const handleClick = async e => {
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file)
+      const res = await axios.post("/upload", formData)
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleClick = async (e) => {
     e.preventDefault();
-    
-  }
-   return (
+    upload();
+  };
+  return (
     <div className="add">
       <Helmet>
         <meta charSet="utf-8" />
